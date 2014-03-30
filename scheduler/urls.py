@@ -5,8 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'scheduler.views.home', name='home'),
+    url(r'^$', 'calendar_scheduler.views.BaseHandler', name='home'),
     # url(r'^scheduler/', include('scheduler.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
