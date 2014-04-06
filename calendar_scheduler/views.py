@@ -1,9 +1,10 @@
 __author__ = 'Konstantin Oficerov'
+__email__ = 'konstantin.oficerov@gmail.com'
 
 from wsgiref.handlers import BaseHandler as BH
 
 
-class BaseHandler(object):
+class BaseHandler(BH):
     
     def __init__(self, *args, **kwargs):
         pass
