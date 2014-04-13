@@ -1,16 +1,13 @@
 __author__ = 'Konstantin Oficerov'
 __email__ = 'konstantin.oficerov@gmail.com'
 
-from wsgiref.handlers import BaseHandler as BH
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 
-class BaseHandler(BH):
-    
-    def __init__(self, *args, **kwargs):
-        pass
-    
-    def get(self, *args, **kwargs):
-        f = open('templates/base.html')
-        html = f.read()
-        f.close()
-        return html
+def main_view(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('home'))
+    else:
+        return HttpResponseRedirect(reverse('openid-login'))
+
