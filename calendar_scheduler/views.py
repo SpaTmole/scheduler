@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 def main_view(request):
     if request.user.is_authenticated():
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('calendar_scheduler:home'))
     else:
         return HttpResponseRedirect(reverse('openid-login'))
 
