@@ -1,4 +1,5 @@
-__author__ = 'konstantin'
+__author__ = 'Konstantin Oficerov'
+__email__ = 'konstantin.oficerov@gmail.com'
 from django.conf.urls import patterns, include, url
 from views import *
 

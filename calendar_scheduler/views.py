@@ -10,4 +10,3 @@ def main_view(request):
         return HttpResponseRedirect(reverse('calendar_scheduler:home'))
     else:
         return HttpResponseRedirect(reverse('openid-login'))
-

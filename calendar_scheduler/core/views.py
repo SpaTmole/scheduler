@@ -1,19 +1,4 @@
-__author__ = 'konstantin'
+__author__ = 'Konstantin Oficerov'
+__email__ = 'konstantin.oficerov@gmail.com'
 
-from django.views.generic import TemplateView
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required, user_passes_test
-
-
-class LoginRequiredView(object):
-    @method_decorator(login_required())
-    def dispatch(self, request, *args, **kwargs):
-        return super(LoginRequiredView, self).dispatch(request, *args, **kwargs)
-
-
-class MainHandler(LoginRequiredView, TemplateView):
-    template_name = 'base.html'
-
-    def get_context_data(self, **kwargs):
-        context = {'request': self.request}
-        return super(MainHandler, self).get_context_data(**context)
+from calendar_scheduler.core.mainhandlers import *
