@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="calendar"></div>
+    <div id="calendar-content"></div>
+    <div hidden="hidden">
+        <div id="popover-content">
+            {{ form.title }} <br/>
+{#            {{ form['start'] }} <br/>#}
+{#            {{ form['end'] }} <br/>#}
+{#            {{ form['description'] }} <br/>#}
+{#            {{ form['color'] }} <br/>   #}
+        </div>
+    </div>
 {% endblock %}
 
 {% block nav-name %}general{% endblock %}

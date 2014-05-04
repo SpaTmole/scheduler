@@ -13,6 +13,10 @@ class BaseCalendarAPI(RESTfulHandler):
         """
         here will be handled read request
         """
+        try:
+            return json.dumps(self.read())
+        except KeyError:
+            return self.abort()
 
     def post_result(self):
         """
@@ -28,6 +32,10 @@ class BaseCalendarAPI(RESTfulHandler):
         """
         returns list of dict stored calendar events
         """
+        start_date = datetime.datetime.fromtimestamp(float(self.request.params.get('start')))
+        end_date = datetime.datetime.fromtimestamp(float(self.request.params.get('end')))
+        event_list = CalendarEvent.all() # add filter
+        return event_list
 
     def create(self):
         """
