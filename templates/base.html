@@ -94,7 +94,8 @@
 											<span class="nav-title">General</span>
                                         </span>
                                     	<ul class="inner-nav">
-                                        	<li><a class="tab-dashboard" href="{% url "calendar_scheduler:home" %}"><i class="icol-dashboard"></i> Dashboard</a></li>
+                                           <li><a class="tab-dashboard" href="{% url "calendar_scheduler:home" %}"><i class="icol-feed"></i> Feedback</a></li>
+                                           <li><a class="tab-calendar" href="{% url "calendar_scheduler:calendar" %}"><i class="icol-calendar-1"></i> Calendar</a></li>
                                         </ul>
                                     </li>
                                 	<li>
@@ -124,7 +125,7 @@
                             
                             <div id="main-content">
                             	<div class="row-fluid">                                    
-                                	<div class="span12 widget">
+                                	<div class="span12 widget" id="content-block">
                                         {% block content %}{% endblock %}
                                     </div>
                                 </div>
@@ -168,11 +169,11 @@
         (function($, document, window){
             var active_bar = $('nav#navigation').find($('span.nav-{% block nav-name %}{% endblock %}'));
             if(active_bar.length){
-                active_bar.addClass('active');
+                active_bar.parent().addClass('active open');
             }
             var active_tab = $('ul.inner-nav').find($('a.tab-{% block tab-name %}{% endblock %}'));
             if(active_tab.length){
-                active_tab.addClass('active');
+                active_tab.parent().addClass('active');
             }
         })(jQuery, document, window)
     </script>

@@ -19,8 +19,8 @@ class MainHandler(LoginRequiredView, TemplateView):
     template_name = 'base.html'
 
     def get_context_data(self, **kwargs):
-        context = {'request': self.request}
-        return super(MainHandler, self).get_context_data(**context)
+        kwargs['request'] = self.request
+        return super(MainHandler, self).get_context_data(**kwargs)
 
 
 class RESTfulHandler(LoginRequiredView):
@@ -65,7 +65,7 @@ class RESTfulHandler(LoginRequiredView):
         try:
             result = self.get_result()
         except Exception:
-            return self.abort()
+             return self.abort()
         return self.make_response(result)
 
     def post(self, *args, **kwargs):

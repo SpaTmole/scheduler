@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div id="calendar"></div>
+{% endblock %}
 
+{% block nav-name %}general{% endblock %}
+{% block tab-name %}calendar{% endblock %}
+{% block media_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.css' %}" media="all"/>
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.print.css' %}" media="all"/>
+{% endblock %}
+{% block media_js %}
+    <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>
+    <script language="JavaScript">
+        $(document).ready(function() {
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+        });
+    </script>
 {% endblock %}
