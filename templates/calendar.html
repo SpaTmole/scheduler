@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% load wtforms %}
     <div id="calendar-content"></div>
     <div hidden="hidden">
-        <div id="popover-content">
-            {{ form.title }} <br/>
-{#            {{ form['start'] }} <br/>#}
-{#            {{ form['end'] }} <br/>#}
-{#            {{ form['description'] }} <br/>#}
-{#            {{ form['color'] }} <br/>   #}
-        </div>
+    {% for field in form %}
+        {{ field.label }}<br/>{% form_field field%} <br/>
+    {% endfor %}
     </div>
 {% endblock %}
 
@@ -25,7 +22,8 @@
     <script language="JavaScript">
         $(document).ready(function() {
             // page is now ready, initialize the calendar...
-            $('#calendar').fullCalendar({
+            console.log('calendar now is loading');
+            $('#calendar-content').fullCalendar({
                 // put your options and callbacks here
             })
 

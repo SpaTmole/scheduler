@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'django_openid_auth',
     'calendar_scheduler',
     'rest_framework',
+    'wtforms.ext.django',
 )
 
 # A sample logging configuration. The only tangible logging

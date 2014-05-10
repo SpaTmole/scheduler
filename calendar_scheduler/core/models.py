@@ -4,17 +4,19 @@ __email__ = 'konstantin.oficerov@gmail.com'
 from django.db import models
 from django.contrib.auth.models import User
 
+AVAILABLE_COLORS = ["red", "blue", "yellow", "green", "violet", "pink", "gray", "brown"]
+
 
 class CalendarEvent(models.Model):
-    title = models.CharField(max_length=50)
-    owner = models.ForeignKey(User, db_index=True)
+    title = models.CharField(max_length=50, default='')
+    owner = models.ForeignKey(User, db_index=True, blank=False)
     guests = models.ManyToManyField(User, default=[])
-    start = models.DateTimeField(auto_now=False, auto_now_add=False, db_index=True)
-    end = models.DateTimeField(auto_now=False, auto_now_add=False, db_index=True)
-    allDay = models.BooleanField(default=True)
+    start = models.DateTimeField(auto_now=False, auto_now_add=False, db_index=True, blank=False)
+    end = models.DateTimeField(auto_now=False, auto_now_add=False, db_index=True, blank=False)
+    allDay = models.BooleanField(default=False)
     privateMode = models.BooleanField(default=False)  # False - public, True - private
-    description = models.TextField(max_length=255)
-    color = models.CharField(choices=["red", "blue", "yellow", "green", "violet", "pink", "gray", "brown"])
+    description = models.TextField(max_length=255, default='')
+    color = models.CharField(default="yellow", choices=[(color, color) for color in AVAILABLE_COLORS])
     #repeat = ???
 
 
