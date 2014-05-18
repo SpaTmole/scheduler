@@ -26,12 +26,25 @@
 
     $(document).ready(function(){
         var calendar_holder = $('div#calendar-content'),
-            form_holder = $('div#popover-content');
+            form_holder = $('div#modalForm');
+        var Form = {
+            obj: form_holder,
+            start: $('#start'),
+            end: $('#end'),
+            title: $('#title'),
+            color: $('#color'),
+            description: $('#description'),
+            owner: $('#owner'),
+            //guests: $(),
+            allDay: $('#allDay'),
+            privateMode: $('#privateMode')
+        };
+
         if(!$.fn.fullCalendar.length){
             calendar_holder.append($('<div class="alert alert-block alert-alarm">Aw, snap! ' +
                 'We can\'t find FullCalendar module. Please, make sure, ' +
-                'that fullcalendar.js was included to media/static files.</div>'))
-            return
+                'that fullcalendar.js was included to media/static files.</div>'));
+            return;
         }
         /* TODO: re-edit everything below!*/
         var calendarOptions = function(permission, cls){
@@ -49,10 +62,9 @@
                 weekMode: 'liquid',
                 editable: permission,
                 events: {
-                    url: GET_EVENTS_URL,
+                    url: document.API.url,
                     data:{
-                        type: FILTER_TYPE,
-                        owner: FILTER_OWNER
+                        owner: document.API.owner_filter
                     }
                 },
                 theme: false,
@@ -69,23 +81,23 @@
                     month: '<i class="icon-th"> Month</i>'
                 },
                 droppable: permission,
-                drop: function(date, allDay) {
-                    var end = new Date(date.getFullYear(), date.getMonth(),date.getDate(), date.getHours()+1, date.getMinutes());
-                    if(allDay){
-                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
-                        end.setHours(23,59,59);
-                    }
-                    work_tools.modalEvent.modalTools.startDatePicker.datepicker('setDate', date);
-                    work_tools.modalEvent.modalTools.endDatePicker.datepicker('setDate', end);
-                    work_tools.modalEvent.modalTools.typeSelect.find('[value="'+$(this).attr('class').split(' ')[1].split('-')[1]+'"]').attr('selected','selected');
-                    work_tools.modalEvent.modalHeader.text("New event:");
-                    work_tools.modalEvent.modalWindow.modal('show');
-                },
+//                drop: function(date, allDay) {
+//                    var end = new Date(date.getFullYear(), date.getMonth(),date.getDate(), date.getHours()+1, date.getMinutes());
+//                    if(allDay){
+//                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
+//                        end.setHours(23,59,59);
+//                    }
+//                    work_tools.modalEvent.modalTools.startDatePicker.datepicker('setDate', date);
+//                    work_tools.modalEvent.modalTools.endDatePicker.datepicker('setDate', end);
+//                    work_tools.modalEvent.modalTools.typeSelect.find('[value="'+$(this).attr('class').split(' ')[1].split('-')[1]+'"]').attr('selected','selected');
+//                    work_tools.modalEvent.modalHeader.text("New event:");
+//                    work_tools.modalEvent.modalWindow.modal('show');
+//                },
                 loading: function( isLoading, view ){
                     if(isLoading){
-                        lock_screen();
+                        window.locker.show();
                     }else{
-                        unlock_screen();
+                        window.locker.hide();
                     }
                 },
                 select: function(start, end, allDay) {
@@ -172,6 +184,41 @@
                 }
             }
         };
+
+        $(document).ready(function(){
+            var calendar = new Calendar(calendar_holder, calendarOptions(true, this), true);
+            calendar.loadCalendar();
+            var datepicker_options = {
+                    firstDay: 1,
+                    dateFormat: "dd-mm-yy",
+                    onSelect: function (date) {
+                              $(this).datepicker('setDate', date);
+                    },
+                    beforeShow: function(e, o){
+                       $(e).datepicker('setDate', $(e).datepicker('getDate'));
+                    }
+                },
+                datetimepicker_options = {
+                     firstDay: 1,
+                     stepMinute: 10,
+                     hourGrid: 4,
+                     minuteGrid: 10,
+                     dateFormat: "dd-mm-yy",
+                     timeFormat: "hh:mm:ss",
+                     dateOnly: false,
+                     buffer: undefined,
+                     onSelect: function (date) {
+                         $(this).datetimepicker('setDate', date);
+                     },
+                     beforeShow: function(e, o){
+                         $(e).datetimepicker('setDate', $(e).datetimepicker('getDate'));
+                     }
+
+                };
+            Form.end.datetimepicker(datetimepicker_options);
+            Form.start.datetimepicker(datetimepicker_options);
+
+        });
     });
 
 

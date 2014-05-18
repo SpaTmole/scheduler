@@ -3,10 +3,20 @@
 {% block content %}
     {% load wtforms %}
     <div id="calendar-content"></div>
-    <div hidden="hidden">
-    {% for field in form %}
-        {{ field.label }}<br/>{% form_field field%} <br/>
-    {% endfor %}
+    <div id="modalForm" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
+      </div>
+      <div class="modal-body">
+      {% for field in form %}
+            {% form_field field.label %}<br/>{% form_field field%} <br/>
+      {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div>
     </div>
 {% endblock %}
 
@@ -24,8 +34,40 @@
             // page is now ready, initialize the calendar...
             console.log('calendar now is loading');
             $('#calendar-content').fullCalendar({
-                // put your options and callbacks here
-            })
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                selectable: true,
+                selectHelper: true,
+                firstDay: 1,
+                eventTransaction: undefined,
+                weekMode: 'liquid',
+                editable: true,
+                theme: false,
+                axisFormat: 'HH:mm',
+                timeFormat: 'HH:mm{-HH:mm }',
+                buttonText: {
+                    prev: '<i class="icon-caret-left"></i>',
+                    next: '<i class="icon-caret-right"></i>',
+                    prevYear: '<i class="icon-caret-left"></i><i class="icon-caret-left"></i>',
+                    nextYear: '<i class="icon-caret-right"></i><i class="icon-caret-right"></i>',
+                    today: '<i class="icon-calendar"> Today </i>',
+                    agendaDay: '<i class="icon-th-list"> Day</i>',
+                    agendaWeek: '<i class="icon-th-large"> Week</i>',
+                    month: '<i class="icon-th"> Month</i>'
+                },
+                droppable: true,
+                select: function(start, end, allDay) {
+                    $('#modalForm').modal('show');
+                }
+            });
+            document.API = {
+                url: '{%url "calendar_scheduler:calendar-api" %}',
+                filter_owner: 'all'
+            };
+
 
         });
     </script>

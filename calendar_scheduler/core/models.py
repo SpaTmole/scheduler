@@ -31,4 +31,4 @@ class Profile(models.Model):
     contacts = models.TextField(max_length=255)
     #tags = models.ManyToManyField()
     about = models.TextField(max_length=500)
-    _friends = models.ManyToManyField('self')
+    _friends = models.ManyToManyField(User)

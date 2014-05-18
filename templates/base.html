@@ -26,6 +26,7 @@
 <!-- Main Layout Stylesheet -->
 <link rel="stylesheet" href="{% static "assets/css/fonts/icomoon/style.css"%}" media="screen">
 <link rel="stylesheet" href="{% static "assets/css/main-style.css"%}" media="screen">
+<link rel="stylesheet" href="{% static "application-plugins/css/scheduler-main.css" %}" media="all">
 {% block media_css %}{% endblock %}
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -46,6 +47,9 @@
         </div>
     </div>
     -->
+    <div id="locker" style="display: none">
+        <img src="{% static "assets/images/preloaders/15.gif" %}"/>
+    </div>
     <div id="wrapper">
         <header id="header" class="navbar navbar-inverse">
             <div class="navbar-inner">
@@ -167,6 +171,7 @@
 
     <script language="JavaScript">
         (function($, document, window){
+            window.locker = $('#locker');
             var active_bar = $('nav#navigation').find($('span.nav-{% block nav-name %}{% endblock %}'));
             if(active_bar.length){
                 active_bar.parent().addClass('active open');
