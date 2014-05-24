@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b720635-3841-4169-93fb-019c4b205860" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/staticfiles/custom-api/calendar.js" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/feed.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/api.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/api.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/calendar.html" afterPath="$PROJECT_DIR$/templates/calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/models.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/urls.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/views.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scheduler.iws" />
@@ -34,7 +36,7 @@
       <file leaf-file-name="calendar.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/calendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="47" selection-start="155" selection-end="155" vertical-scroll-proportion="10.666667" vertical-offset="378" max-vertical-offset="1422">
+            <state line="46" column="69" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-25.074074" vertical-offset="151" max-vertical-offset="954">
               <folding />
             </state>
           </provider>
@@ -43,36 +45,25 @@
       <file leaf-file-name="scheduler-main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="14" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+            <state line="21" column="10" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="522">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="41" selection-start="7938" selection-end="7938" vertical-scroll-proportion="-2.6296296" vertical-offset="3043" max-vertical-offset="3456">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="api.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="363" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="123" max-vertical-offset="954">
-              <folding>
-                <element signature="e#80#143#0" expanded="true" />
-              </folding>
+            <state line="15" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.5885559" vertical-offset="0" max-vertical-offset="900">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendar.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
+      <file leaf-file-name="mainhandlers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="894" selection-end="894" vertical-scroll-proportion="-4.8095236" vertical-offset="2322" max-vertical-offset="4176">
+            <state line="65" column="0" selection-start="2021" selection-end="2021" vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="1728">
               <folding />
             </state>
           </provider>
@@ -81,10 +72,38 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="23" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
+            <state line="9" column="57" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="486">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feed.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/feed.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="14" selection-start="300" selection-end="300" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="378">
               <folding>
-                <element signature="e#79#130#0" expanded="true" />
+                <marker date="1400938263563" expanded="true" signature="141:299" placeholder="..." />
+                <marker date="1400938263563" expanded="true" signature="196:284" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="206" column="34" selection-start="9116" selection-end="9116" vertical-scroll-proportion="0.0" vertical-offset="3736" max-vertical-offset="4248">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,21 +126,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/scheduler/urls.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/templates/profile.html" />
         <option value="$PROJECT_DIR$/calendar_scheduler/core/serializers.py" />
-        <option value="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" />
-        <option value="$PROJECT_DIR$/calendar_scheduler/core/api.py" />
-        <option value="$PROJECT_DIR$/calendar_scheduler/core/views.py" />
         <option value="$PROJECT_DIR$/scheduler/settings.py" />
         <option value="$PROJECT_DIR$/calendar_scheduler/core/forms.py" />
-        <option value="$PROJECT_DIR$/calendar_scheduler/core/urls.py" />
         <option value="$PROJECT_DIR$/staticfiles/custom-api/calendar.js" />
-        <option value="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/calendar_scheduler/core/models.py" />
+        <option value="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" />
+        <option value="$PROJECT_DIR$/calendar_scheduler/core/views.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/feed.html" />
+        <option value="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
         <option value="$PROJECT_DIR$/templates/calendar.html" />
+        <option value="$PROJECT_DIR$/calendar_scheduler/core/urls.py" />
+        <option value="$PROJECT_DIR$/calendar_scheduler/core/api.py" />
         <option value="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
       </list>
     </option>
@@ -158,7 +177,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,18 +333,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.idesettings.quicklists" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$USER_HOME$/Envs/scheduler/local/bin/python2.7" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -430,7 +449,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="scheduler" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -456,27 +495,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="scheduler" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -582,18 +601,18 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30720508" sideWeight="0.672" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4016" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22406967" sideWeight="0.672" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.4996041" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.5003959" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -611,55 +630,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/calendar_scheduler/core/api.py</url>
           <line>15</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/4.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/3.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/6.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/12.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/8.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/7.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/1.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/2.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -677,48 +656,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/urls.py">
+    <entry file="file://$USER_HOME$/Envs/scheduler/lib/python2.7/site-packages/django/utils/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <folding>
-            <element signature="e#79#130#0" expanded="true" />
-          </folding>
+        <state line="24" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="0.3314917" vertical-offset="276" max-vertical-offset="2232">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
+    <entry file="file://$USER_HOME$/Envs/scheduler/lib/python2.7/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="363" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="123" max-vertical-offset="954">
-          <folding>
-            <element signature="e#80#143#0" expanded="true" />
-          </folding>
+        <state line="22" column="0" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="3870">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="41" selection-start="7938" selection-end="7938" vertical-scroll-proportion="-2.6296296" vertical-offset="3043" max-vertical-offset="3456">
+        <state line="129" column="51" selection-start="6023" selection-end="6023" vertical-scroll-proportion="-2.8148148" vertical-offset="2246" max-vertical-offset="3456">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/feed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="14" selection-start="300" selection-end="300" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="378">
+          <folding>
+            <marker date="1400938263563" expanded="true" signature="141:299" placeholder="..." />
+            <marker date="1400938263563" expanded="true" signature="196:284" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="14" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+        <state line="21" column="10" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="64" max-vertical-offset="522">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="47" selection-start="155" selection-end="155" vertical-scroll-proportion="10.666667" vertical-offset="378" max-vertical-offset="1422">
+        <state line="46" column="69" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-25.074074" vertical-offset="151" max-vertical-offset="954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/scheduler/local/lib/python2.7/site-packages/django/contrib/formtools/wizard/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="8" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.9281768" vertical-offset="1446" max-vertical-offset="13014">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/scheduler/local/lib/python2.7/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="8" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.62983423" vertical-offset="420" max-vertical-offset="3870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="57" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="486">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2021" selection-end="2021" vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="1728">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="894" selection-end="894" vertical-scroll-proportion="-4.8095236" vertical-offset="2322" max-vertical-offset="4176">
+        <state line="206" column="34" selection-start="9116" selection-end="9116" vertical-scroll-proportion="0.0" vertical-offset="3736" max-vertical-offset="4248">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.5885559" vertical-offset="0" max-vertical-offset="900">
           <folding />
         </state>
       </provider>

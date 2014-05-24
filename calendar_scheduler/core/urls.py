@@ -5,7 +5,7 @@ from views import *
 from api import *
 
 urlpatterns = patterns('',
-                       url(r'^home/$', MainHandler.as_view(), name="home"),
+                       url(r'^home/$', FeedbackHandler.as_view(), name="home"),
                        url(r'^calendar/$', CalendarHandler.as_view(), name="calendar"),
-                       url(r'^api/$', BaseCalendarAPI, name='calendar-api')
+                       url(r'^api/$', BaseCalendarAPI.as_view(), name='calendar-api')
                       )

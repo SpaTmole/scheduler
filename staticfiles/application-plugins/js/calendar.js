@@ -12,7 +12,7 @@
     * permission - true or false; true allows to add, to edit and to delete events, false - allows to specate only.
     */
         var that = this;
-        this.options = options(that);
+        this.options = options(that, permission);
         this.target = target;
         this.permission = permission;
         this.loadCalendar = function(){
@@ -25,10 +25,13 @@
 
 
     $(document).ready(function(){
-        var calendar_holder = $('div#calendar-content'),
-            form_holder = $('div#modalForm');
+        var CalendarItems = {
+            calendar_holder: $('div#calendar-content'),
+            form_holder: $('div#modalForm'),
+            delete_btn: $('#delete_btn')
+        };
         var Form = {
-            obj: form_holder,
+            obj: CalendarItems.form_holder,
             start: $('#start'),
             end: $('#end'),
             title: $('#title'),
@@ -37,11 +40,12 @@
             owner: $('#owner'),
             //guests: $(),
             allDay: $('#allDay'),
-            privateMode: $('#privateMode')
+            privateMode: $('#privateMode'),
+            header: $('#myModalLabel')
         };
 
         if(!$.fn.fullCalendar.length){
-            calendar_holder.append($('<div class="alert alert-block alert-alarm">Aw, snap! ' +
+            CalendarItems.calendar_holder.append($('<div class="alert alert-block alert-alarm">Aw, snap! ' +
                 'We can\'t find FullCalendar module. Please, make sure, ' +
                 'that fullcalendar.js was included to media/static files.</div>'));
             return;
@@ -102,13 +106,13 @@
                 },
                 select: function(start, end, allDay) {
                     if(allDay){
-                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
-                        end.setHours(23,59,59);
+                        Form.allDay.prop('checked', true).trigger('change');
+                        end.setHours(23, 59, 59);
                     }
-                    work_tools.modalEvent.modalTools.endDatePicker.datepicker('setDate', end);
-                    work_tools.modalEvent.modalTools.startDatePicker.datepicker('setDate', start);
-                    work_tools.modalEvent.modalHeader.text("New event:");
-                    work_tools.modalEvent.modalWindow.modal('show');
+                    Form.end.datepicker('setDate', end);
+                    Form.start.datepicker('setDate', start);
+                    Form.header.text("New event:");
+                    Form.obj.modal('show');
                 },
 
                 eventMouseover: function( event, jsEvent, view ) {
@@ -126,13 +130,13 @@
                     if(time_element.length)
                         posToPaste = time_element;
 
-                    if(!work_tools.deleteBtn.length){
+                    if(!CalendarItems.delete_btn.length){
 
-                        var delete_btn = $("<a id='delete_btn' class='btn btn-default del-event-btn pull-left'><i class='icon-remove-sign'></i></a>");
-                        if(PERMISSIONS){
+                        var delete_btn = $("<a id='delete_btn' class='del-event-btn'><i class='icon-remove-sign'></i></a>");
+                        if(permission){
                             delete_btn.fadeIn(300).insertBefore(posToPaste);
                         }
-                        work_tools.deleteBtn = delete_btn;
+                        CalendarItems.delete_btn = delete_btn;
                     }
                 },
                 eventMouseout: function( event, jsEvent, view ) {
@@ -142,51 +146,51 @@
                         title_element.text(event.title).animate({opacity: 1.0}, 200);
                     });
 
-                    work_tools.deleteBtn.remove();
-                    work_tools.deleteBtn = $();
+                    CalendarItems.delete_btn.remove();
+                    CalendarItems.delete_btn = $();
                 },
                 eventClick: function(calEvent, jsEvent, view) {
-                    if(!(work_tools.deleteBtn.is(":hover")))
+                    if(!(CalendarItems.delete_btn.is(":hover")))
                     {
                         cls.fillForm(calEvent);
-                        work_tools.modalEvent.modalWindow.modal('show');
+                        Form.obj.modal('show');
                     }
-                    work_tools.calendarFrame.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
+                    CalendarItems.calendar_holder.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
                 },
                 eventDrop: function(calEvent,dayDelta,minuteDelta,allDay,revertFunc) { // put it in savebtnhandler
                     if(allDay){
                         calEvent.end.setHours(23,59,59);
                         calEvent.start.setHours(0,0,0);
-                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
+                        Form.allDay.prop('checked', true).trigger('change');
                     }
 
-                    work_tools.calendarFrame.fullCalendar('updateEvent', function(_event){
+                    CalendarItems.calendar_holder.fullCalendar('updateEvent', function(_event){
                         return (_event == calEvent);
                     });
 
                     cls.fillForm(calEvent);
-                    work_tools.calendarFrame.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
+                    CalendarItems.calendar_holder.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
                     cls.saveEvent(revertFunc);
                 },
                 eventResize: function(calEvent,dayDelta,minuteDelta,revertFunc) { // put it in savebtnhandler
                     if(calEvent.allDay){
                         calEvent.end.setHours(23,59,59);
-                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
+                        Form.allDay.prop('checked', true).trigger('change');
                     }
 
-                    work_tools.calendarFrame.fullCalendar('updateEvent', function(_event){
+                    CalendarItems.calendar_holder.fullCalendar('updateEvent', function(_event){
                         return (_event == calEvent);
                     });
 
                     cls.fillForm(calEvent);
-                    work_tools.calendarFrame.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
+                    CalendarItems.calendar_holder.fullCalendar.eventTransaction = {eventObject:calEvent, htmlObject:$(this)};
                     cls.saveEvent(revertFunc);
                 }
             }
         };
 
         $(document).ready(function(){
-            var calendar = new Calendar(calendar_holder, calendarOptions(true, this), true);
+            var calendar = new Calendar(CalendarItems.calendar_holder, calendarOptions, true);
             calendar.loadCalendar();
             var datepicker_options = {
                     firstDay: 1,
@@ -200,7 +204,7 @@
                 },
                 datetimepicker_options = {
                      firstDay: 1,
-                     stepMinute: 10,
+                     stepMinute: 1,
                      hourGrid: 4,
                      minuteGrid: 10,
                      dateFormat: "dd-mm-yy",

@@ -32,9 +32,9 @@ class BaseCalendarAPI(RESTfulHandler):
         """
         returns list of dict stored calendar events
         """
-        start_date = datetime.datetime.fromtimestamp(float(self.request.params.get('start')))
-        end_date = datetime.datetime.fromtimestamp(float(self.request.params.get('end')))
-        event_list = CalendarEvent.all() # add filter
+        start_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('start')))
+        end_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('end')))
+        event_list = list(CalendarEvent.objects.all())  # add filter
         return event_list
 
     def create(self):

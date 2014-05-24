@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if feed %}
+    <!-- do something -->
+    {% else %}
+        <div class="widget-content">
+            <div class="alert alert-block alert-info">
+                <i class="icon-info-sign"></i> There is no news yet.
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block nav-name %}general{% endblock %}
+{% block tab-name %}dashboard{% endblock %}

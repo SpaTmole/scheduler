@@ -9,13 +9,13 @@ import collections
 import json
 
 
-class LoginRequiredView(View):
+class LoginRequiredView(TemplateView):
     @method_decorator(login_required())
     def dispatch(self, request, *args, **kwargs):
         return super(LoginRequiredView, self).dispatch(request, *args, **kwargs)
 
 
-class MainHandler(LoginRequiredView, TemplateView):
+class MainHandler(LoginRequiredView):
     template_name = 'base.html'
 
     def get_context_data(self, **kwargs):

@@ -11,4 +11,13 @@ class CalendarHandler(MainHandler):
     def get_context_data(self, **kwargs):
         form = CalendarForm()
         kwargs['form'] = form
-        return super(MainHandler, self).get_context_data(**kwargs)
+        return super(CalendarHandler, self).get_context_data(**kwargs)
+
+
+class FeedbackHandler(MainHandler):
+    template_name = 'feed.html'
+
+    def get_context_data(self, **kwargs):
+        feed = None  # TODO: add feedback
+        kwargs['feed'] = feed
+        return super(FeedbackHandler, self).get_context_data(**kwargs)
