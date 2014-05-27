@@ -221,6 +221,10 @@
                 };
             Form.end.datetimepicker(datetimepicker_options);
             Form.start.datetimepicker(datetimepicker_options);
+            Form.allDay.iButton({
+                labelOn: 'All day',
+                labelOff: 'Partly time'
+            });
 
         });
     });

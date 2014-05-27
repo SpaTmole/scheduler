@@ -22,3 +22,15 @@
 .del-event-btn:hover{
     box-shadow: 1px 1px 1px 1px #000;
 }
+.modal{
+    left: 35%;
+    width: 60%;
+    margin: 0 0 0 -280px
+}
+.modal.fade.in{
+    top: 0;
+}
+.modal-body{
+    overflow-y: visible;
+    max-height: inherit;
+}

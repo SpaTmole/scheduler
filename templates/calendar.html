@@ -11,13 +11,78 @@
         <h3 id="myModalLabel">Modal header</h3>
       </div>
       <div class="modal-body">
-      {% for field in form %}
-            {% form_field field.label %}<br/>{% form_field field%} <br/>
-      {% endfor %}
+          <div class="form-container">
+          <form id="main-form" method="post">
+              <div class="control-group">
+                  <label>
+                      Event title:
+                  </label>
+                  <div class="controls">
+                      {% form_field form.title class="span12" %}
+                  </div>
+              </div>
+              <div class="control-group">
+                  <div class="controls-row">
+                      <div class="span6">
+
+                          <div class="controls">
+                              <label>
+                                  Event begins at:
+                              </label>
+                              {% form_field form.start class="span12" %}
+                          </div>
+                      </div>
+                      <div class="span6">
+
+                          <div class="controls">
+                              <label>
+                                  Event finish at:
+                              </label>
+                              {% form_field form.end class="span12"%}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="control-group">
+                  <div class="controls-row">
+                      <div class="span6">
+
+                          <div class="controls">
+                              <div class="ibutton-container" style="width: 100px; ">
+                                {% form_field form.allDay%}
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="span6">
+                          <div class="controls">
+                              {% form_field form.privateMode %}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label>
+                      Color:
+                  </label>
+                  <div class="controls">
+                      {% form_field form.color %}
+                  </div>
+              </div>
+              <div class="control-group">
+                  <label>
+                      Description:
+                  </label>
+                  <div class="controls">
+                      {% form_field form.description  class="span12" %}
+                  </div>
+              </div>
+          </form>
+          </div>
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
+        <button id="save-btn" type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
 {% endblock %}
@@ -28,9 +93,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.css' %}" media="all"/>
     <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.print.css' %}" media="all"/>
+    <link rel="stylesheet" href="{% static 'plugins/ibutton/jquery.ibutton.css' %}" media="all"/>
 {% endblock %}
 {% block media_js %}
     <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'plugins/ibutton/jquery.ibutton.min.js' %}"></script>
     <script language="JavaScript">
         $(document).ready(function() {
             // page is now ready, initialize the calendar...
