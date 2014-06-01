@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b720635-3841-4169-93fb-019c4b205860" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/calendar.html" afterPath="$PROJECT_DIR$/templates/calendar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/forms.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +28,7 @@
       <file leaf-file-name="calendar.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/calendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="-3.074074" vertical-offset="43" max-vertical-offset="2160">
+            <state line="7" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="62.88889" vertical-offset="1824" max-vertical-offset="2160">
               <folding />
             </state>
           </provider>
@@ -50,7 +46,7 @@
       <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="27" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+            <state line="9" column="27" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
@@ -109,7 +105,7 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="49" selection-start="8036" selection-end="8036" vertical-scroll-proportion="-2.6296296" vertical-offset="3079" max-vertical-offset="3492">
+            <state line="175" column="49" selection-start="8036" selection-end="8036" vertical-scroll-proportion="-7.037037" vertical-offset="2960" max-vertical-offset="3492">
               <folding />
             </state>
           </provider>
@@ -118,10 +114,9 @@
       <file leaf-file-name="calendar.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="262" column="8" selection-start="11375" selection-end="11375" vertical-scroll-proportion="-1.1657143" vertical-offset="2424" max-vertical-offset="5382">
+            <state line="248" column="0" selection-start="10705" selection-end="10705" vertical-scroll-proportion="-0.61714286" vertical-offset="2916" max-vertical-offset="7992">
               <folding>
                 <element signature="e#3266#3317#0" expanded="false" />
-                <element signature="e#6024#8384#0" expanded="false" />
                 <element signature="e#8387#8438#0" expanded="false" />
                 <element signature="e#13343#13391#0" expanded="false" />
               </folding>
@@ -527,19 +522,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1311" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3344" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23198733" sideWeight="0.6656" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.4996041" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.5003959" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.5003959" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -609,13 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="27" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="30" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1728">
@@ -633,23 +621,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="25" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="123" max-vertical-offset="486">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="-3.074074" vertical-offset="43" max-vertical-offset="2160">
+        <state line="7" column="20" selection-start="176" selection-end="176" vertical-scroll-proportion="62.88889" vertical-offset="1824" max-vertical-offset="2160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="27" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="49" selection-start="8036" selection-end="8036" vertical-scroll-proportion="-2.6296296" vertical-offset="3079" max-vertical-offset="3492">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="25" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="123" max-vertical-offset="486">
+        <state line="175" column="49" selection-start="8036" selection-end="8036" vertical-scroll-proportion="-7.037037" vertical-offset="2960" max-vertical-offset="3492">
           <folding />
         </state>
       </provider>
@@ -665,10 +660,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="8" selection-start="11375" selection-end="11375" vertical-scroll-proportion="-1.1657143" vertical-offset="2424" max-vertical-offset="5382">
+        <state line="248" column="0" selection-start="10705" selection-end="10705" vertical-scroll-proportion="-0.61714286" vertical-offset="2916" max-vertical-offset="7992">
           <folding>
             <element signature="e#3266#3317#0" expanded="false" />
-            <element signature="e#6024#8384#0" expanded="false" />
             <element signature="e#8387#8438#0" expanded="false" />
             <element signature="e#13343#13391#0" expanded="false" />
           </folding>

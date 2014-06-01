@@ -439,15 +439,108 @@
                      }
 
                 };
-            Form.end.datetimepicker(datetimepicker_options);
-            Form.start.datetimepicker(datetimepicker_options);
-            Form.allDay.iButton({
-                labelOn: 'All day',
-                labelOff: 'Partly time'
-            });
 
         });
     });
+
+    function all_day_change(d_opts, dt_opts){
+        var all_day = Form.allDay,
+            pickers = [Form.start, Form.end];
+        if(all_day.prop('checked')){
+            $(pickers).each(function(){
+                $(this).datepicker('destroy');
+                $(this).datepicker(d_opts);
+            });
+        }
+        else{
+            $(pickers).each(function(){
+                $(this).datepicker('destroy');
+                $(this).datetimepicker(dt_opts);
+            });
+        }
+    }
+
+    function eventDelBtnHandler(){
+            work_tools.modalConfirm.modalWindow.modal('show');
+    }
+
+    function hideModalHandler(){
+            Form.owner.val('').find('option:selected').removeAttr('selected');
+            Form.color.val('').find('option:selected').removeAttr('selected');
+            Form.title.val('');
+            Form.start.val('');
+            Form.end.val('');
+            Form.description.val('');
+            Form.allDay.prop('checked', false).trigger('change');
+            $('div.alert.alert-block.alert-error').remove();
+            CalendarItems.calendar_holder.fullCalendar('unselect');
+            return true;
+        }
+
+    function saveBtnHandler(e, o){
+            e.preventDefault();
+            o.saveEvent();
+        }
+
+    function modalDelBtnHandler(e){
+        var calendar = CalendarItems.calendar_holder;
+        window.lock();
+        calendar.fullCalendar.eventTransaction.htmlObject.fadeOut(1000);
+        send_ajax_request(window.API.url+'?key='+calendar.fullCalendar.eventTransaction.eventObject.key, null, function(){
+            calendar.fullCalendar('removeEvents', function(event){
+                return (event == calendar.fullCalendar.eventTransaction.eventObject);
+            });
+            unlock_screen();
+        }, 'delete', function(o){calendar.fullCalendar.eventTransaction.htmlObject.fadeIn(200);});
+        work_tools.modalConfirm.modalWindow.modal('hide');
+    }
+
+
+    function send_ajax_request(url, object, success_function, type, revertFunc){
+        $.ajax({
+                   data: object,
+                   url: url,
+                   type: type,
+                   dataType: 'json'
+
+               }).done(function(data){
+                    window.unlock();
+                    if(data.status == 'error'){
+
+                        if(data.form){
+                           var tmp = function(msg){
+                               return ('<div name="error_field" class="alert alert-block alert-error fade in">' +
+                                       '<button type="button" class="close" data-dismiss="alert">&times;</button> '+msg+' </div>') };
+                           for (var field in data.form){
+                               $('#'+field).parent().append($(tmp(data.form[field])));
+                           }
+                        }
+                        if( revertFunc ){
+                            revertFunc(object);
+                        }
+                        return false;
+                    }
+                    success_function(data);
+                    return true;
+                }).fail(function(){
+                    CalendarItems.form_holder.modal('hide');
+                    CalendarItems.calendar_holder.prepend(
+                        $('<div style="height: 100px; z-index: 999; position: relative; top: 10%;" class="alert alert-block alert-error fade in">' +
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                        '<strong>Error!</strong> Unexpected request error. </div>'));
+                    if( revertFunc ){
+                        revertFunc(object);
+                    }
+                }).always(
+                function(){
+                    var button = Form.saveButton;
+                    button.contents().remove();
+                    button.text('Save').removeAttr('disabled');
+                    window.unlock();
+                }
+        );
+    }
+
 
 
 })(jQuery, window.document, window);
