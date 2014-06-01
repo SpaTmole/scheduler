@@ -172,6 +172,8 @@
     <script language="JavaScript">
         (function($, document, window){
             window.locker = $('#locker');
+            window.lock = window.locker.show();
+            window.unlock = window.locker.hide();
             var active_bar = $('nav#navigation').find($('span.nav-{% block nav-name %}{% endblock %}'));
             if(active_bar.length){
                 active_bar.parent().addClass('active open');

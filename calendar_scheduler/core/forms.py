@@ -4,7 +4,6 @@ __email__ = 'konstantin.oficerov@gmail.com'
 import wtforms
 from calendar_scheduler.core.models import CalendarEvent
 from wtforms.ext.django.orm import model_form
-from wtforms.ext.django.fields import QuerySetSelectField
 from itertools import chain
 from urlparse import urljoin
 from wtforms import validators
