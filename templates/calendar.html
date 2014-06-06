@@ -13,6 +13,7 @@
       <div class="modal-body">
           <div class="form-container">
           <form id="main-form" method="post">
+              {% form_field form.owner %}
               <div class="control-group">
                   <label>
                       Event title:
@@ -46,16 +47,18 @@
               <div class="control-group">
                   <div class="controls-row">
                       <div class="span6">
-
                           <div class="controls">
-                              <div class="ibutton-container">
+                              <label>
+                                  All day:
+                              </label>
                                 {% form_field form.allDay%}
-                              </div>
-
                           </div>
                       </div>
                       <div class="span6">
                           <div class="controls">
+                              <label>
+                                  Private:
+                              </label>
                               {% form_field form.privateMode %}
                           </div>
                       </div>

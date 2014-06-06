@@ -2,12 +2,13 @@ __author__ = 'Konstantin Oficerov'
 __email__ = 'konstantin.oficerov@gmail.com'
 
 import wtforms
-from calendar_scheduler.core.models import CalendarEvent
+from calendar_scheduler.core.models import CalendarEvent, User
 from wtforms.ext.django.orm import model_form
 from itertools import chain
 from urlparse import urljoin
 from wtforms import validators
 from scheduler import settings
+from utils import ValidateUser
 
 MEDIA_TYPES = ('js', 'css')
 
@@ -102,6 +103,7 @@ BaseCalendarForm = model_form(CalendarEvent, base_class=MediaForm,
 class CalendarForm(BaseCalendarForm):
     start = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required()])
     end = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required()])
+    owner = wtforms.HiddenField(validators=[validators.Required(), ValidateUser(), ])
 
     def __init__(self, *args, **kwargs):
         super(CalendarForm, self).__init__(*args, **kwargs)

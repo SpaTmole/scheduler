@@ -321,7 +321,7 @@
                     if(isLoading){
                         window.lock();
                     }else{
-                        window.lock();
+                        window.unlock();
                     }
                 },
                 select: function(start, end, allDay) {
@@ -409,38 +409,43 @@
             }
         };
 
-        $(document).ready(function(){
-            var calendar = new Calendar(CalendarItems.calendar_holder, calendarOptions, /*Default permission*/true);
-            calendar.loadCalendar();
-            var datepicker_options = {
-                    firstDay: 1,
-                    dateFormat: "dd-mm-yy",
-                    onSelect: function (date) {
-                              $(this).datepicker('setDate', date);
-                    },
-                    beforeShow: function(e, o){
-                       $(e).datepicker('setDate', $(e).datepicker('getDate'));
-                    }
+
+        var calendar = new Calendar(CalendarItems.calendar_holder, calendarOptions, /*Default permission*/true);
+        calendar.loadCalendar();
+        var datepicker_options = {
+                firstDay: 1,
+                dateFormat: "dd-mm-yy",
+                onSelect: function (date) {
+                          $(this).datepicker('setDate', date);
                 },
-                datetimepicker_options = {
-                     firstDay: 1,
-                     stepMinute: 1,
-                     hourGrid: 4,
-                     minuteGrid: 10,
-                     dateFormat: "dd-mm-yy",
-                     timeFormat: "hh:mm:ss",
-                     dateOnly: false,
-                     buffer: undefined,
-                     onSelect: function (date) {
-                         $(this).datetimepicker('setDate', date);
-                     },
-                     beforeShow: function(e, o){
-                         $(e).datetimepicker('setDate', $(e).datetimepicker('getDate'));
-                     }
+                beforeShow: function(e, o){
+                   $(e).datepicker('setDate', $(e).datepicker('getDate'));
+                }
+            },
+            datetimepicker_options = {
+                 firstDay: 1,
+                 stepMinute: 1,
+                 hourGrid: 4,
+                 minuteGrid: 10,
+                 dateFormat: "dd-mm-yy",
+                 timeFormat: "hh:mm:ss",
+                 dateOnly: false,
+                 buffer: undefined,
+                 onSelect: function (date) {
+                     $(this).datetimepicker('setDate', date);
+                 },
+                 beforeShow: function(e, o){
+                     $(e).datetimepicker('setDate', $(e).datetimepicker('getDate'));
+                 }
 
-                };
+            };
 
-        });
+        Form.end.datetimepicker(datepicker_options);
+        Form.start.datetimepicker(datepicker_options);
+
+        Form.saveButton.live('click', function(e){
+            saveBtnHandler(e, calendar);
+        })
     });
 
     function all_day_change(d_opts, dt_opts){

@@ -9,7 +9,7 @@ class CalendarHandler(MainHandler):
     template_name = 'calendar.html'
 
     def get_context_data(self, **kwargs):
-        form = CalendarForm()
+        form = CalendarForm(owner=self.request.user.pk)
         kwargs['form'] = form
         return super(CalendarHandler, self).get_context_data(**kwargs)
 

@@ -4,7 +4,7 @@ __email__ = 'konstantin.oficerov@gmail.com'
 from django.views.generic import TemplateView, FormView, ListView, RedirectView, DetailView, View
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponse
 import collections
 import json
 
@@ -41,11 +41,10 @@ class RESTfulHandler(LoginRequiredView):
         cb = self.request.GET.get('callback', None)
         if cb:
             self.content_type = 'application/javascript'
-            result = "{0}({1});".format(cb, body)
+            body = "{0}({1});".format(cb, body)
         else:
             self.content_type = 'application/json'
-            result = body
-        return self.dispatch(self.request, **result)
+        return HttpResponse(body, content_type=self.content_type)
 
     def get_result(self):
         raise NotImplementedError
@@ -94,3 +93,6 @@ class RESTfulHandler(LoginRequiredView):
         except Exception:
             return self.abort()
         return self.make_response(result)
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(RESTfulHandler, self).dispatch(request, *args, **kwargs)
