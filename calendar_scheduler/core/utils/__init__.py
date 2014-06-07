@@ -17,3 +17,15 @@ class ValidateUser(object):
             if User.objects.get(pk=field.data):
                 return
         raise ValidationError(self.message)
+
+
+class ValidateStartEndDatetimeProps(object):
+    def __init__(self, message=None):
+        self.message = message if message else "Start should be less than end."
+
+    def __call__(self, form, field):
+        if hasattr(form, 'start') and hasattr(form, 'end'):
+            if form.start.data and form.end.data:
+                if form.start.data < form.end.data:
+                    return
+            raise ValidationError(self.message)

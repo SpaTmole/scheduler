@@ -8,7 +8,8 @@ from itertools import chain
 from urlparse import urljoin
 from wtforms import validators
 from scheduler import settings
-from utils import ValidateUser
+from utils import ValidateUser, ValidateStartEndDatetimeProps
+import logging
 
 MEDIA_TYPES = ('js', 'css')
 
@@ -101,10 +102,27 @@ BaseCalendarForm = model_form(CalendarEvent, base_class=MediaForm,
 
 
 class CalendarForm(BaseCalendarForm):
-    start = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required()])
-    end = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required()])
+    start = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required(),
+                                                                          ValidateStartEndDatetimeProps()])
+    end = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required(),
+                                                                        ValidateStartEndDatetimeProps()])
     owner = wtforms.HiddenField(validators=[validators.Required(), ValidateUser(), ])
 
     def __init__(self, *args, **kwargs):
         super(CalendarForm, self).__init__(*args, **kwargs)
         self.obj = kwargs.get('obj')
+
+    @staticmethod
+    def normalize(**kwargs):
+        if kwargs.get('owner'):
+            kwargs['owner'] = User.objects.get(pk=kwargs['owner'])
+        try:
+            kwargs['start'] = kwargs['start'].isoformat()
+            kwargs['end'] = kwargs['end'].isoformat()
+        except KeyError as e:
+            logging.error(e)
+        return kwargs
+
+    def populate_obj(self, obj):
+        self.owner.data = User.objects.get(pk=self.owner.data)
+        super(CalendarForm, self).populate_obj(obj)

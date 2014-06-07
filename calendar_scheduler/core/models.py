@@ -16,7 +16,7 @@ class CalendarEvent(models.Model):
     allDay = models.BooleanField(default=False)
     privateMode = models.BooleanField(default=False)  # False - public, True - private
     description = models.TextField(max_length=255, default='')
-    color = models.CharField(default="yellow", choices=[(color, color) for color in AVAILABLE_COLORS])
+    color = models.CharField(default="yellow", choices=[(color, color) for color in AVAILABLE_COLORS], max_length=50)
     #repeat = ???
 
     @property
@@ -35,7 +35,7 @@ class CalendarEvent(models.Model):
 
 
 class Profile(models.Model):
-    _user = models.ForeignKey(User, db_index=True)
+    _user = models.ForeignKey(User, db_index=True, related_name='profile_user')
     username = models.CharField(max_length=50, db_index=True)
     birthday = models.DateField(default=None)
     photo = models.BinaryField()
@@ -45,4 +45,4 @@ class Profile(models.Model):
     contacts = models.TextField(max_length=255)
     #tags = models.ManyToManyField()
     about = models.TextField(max_length=500)
-    _friends = models.ManyToManyField(User)
+    _friends = models.ManyToManyField(User, related_name='profile_friends')

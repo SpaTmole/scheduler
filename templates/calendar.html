@@ -13,6 +13,7 @@
       <div class="modal-body">
           <div class="form-container">
           <form id="main-form" method="post">
+              {% csrf_token %}
               {% form_field form.owner %}
               <div class="control-group">
                   <label>
@@ -48,17 +49,17 @@
                   <div class="controls-row">
                       <div class="span6">
                           <div class="controls">
-                              <label>
-                                  All day:
-                              </label>
-                                {% form_field form.allDay%}
+{#                              <label>#}
+{#                                  All day:#}
+{#                              </label>#}
+                                {% form_field form.allDay %}
                           </div>
                       </div>
                       <div class="span6">
                           <div class="controls">
-                              <label>
-                                  Private:
-                              </label>
+{#                              <label>#}
+{#                                  Private:#}
+{#                              </label>#}
                               {% form_field form.privateMode %}
                           </div>
                       </div>
@@ -101,6 +102,7 @@
 {% block media_js %}
     <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>
     <script src="{% static 'plugins/ibutton/jquery.ibutton.min.js' %}"></script>
+    <script src="{% static 'assets/js/libs/jquery.cookie.js' %}"></script>
     <script language="JavaScript">
         $(document).ready(function() {
             // page is now ready, initialize the calendar...
@@ -108,9 +110,9 @@
 
             document.API = {
                 url: '{%url "calendar_scheduler:calendar-api" %}',
-                filter_owner: 'all'
+                filter_owner: 'all',
+                csrf_token: $.cookie('csrftoken')
             };
-
 
         });
     </script>

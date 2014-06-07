@@ -127,8 +127,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django_openid_auth',
     'calendar_scheduler',
+    'calendar_scheduler.core',
     'rest_framework',
     'wtforms.ext.django',
+    'south'
 )
 
 # A sample logging configuration. The only tangible logging

@@ -7,6 +7,7 @@
     var CalendarItems = {
         calendar_holder: $('div#calendar-content'),
         form_holder: $('div#modalForm'),
+        form: $('form#main-form'),
         delete_btn: $('#delete_btn')
     };
 
@@ -172,13 +173,14 @@
             startDatepicker.val(startDatepicker.val()+" 00:00:00");
         }
 
-        var form = Form.obj.serialize();
+        var feed = CalendarItems.form.serialize();
+        console.log(feed);
         if(all_day.attr('disabled') && all_day.attr('value') == 'y')
-            form += '&all_day=y';
+            feed += '&allDay=y';
         saveBtn.text('').attr('disabled','disabled').append('<img style="width: 15px;" src="/media/MoonCakeTheme/assets/images/preloaders/2.gif"/>');
         if(action == "New event:"){ //create;
                 window.lock();
-                send_ajax_request(document.API.url, form,
+                send_ajax_request(document.API.url, feed,
                     function(data){
                         calendar.fullCalendar('renderEvent', data);
                         calendar.fullCalendar('unselect');
@@ -187,7 +189,7 @@
         }
         else{ // update;
                 window.lock();
-                send_ajax_request(document.API.url, form + "&key="+calendar.fullCalendar.eventTransaction.eventObject.key,
+                send_ajax_request(document.API.url, feed + "&key="+calendar.fullCalendar.eventTransaction.eventObject.key,
                     function(data){
                         var incomming_event = calendar.fullCalendar.eventTransaction.eventObject;
                         for(field in incomming_event){
@@ -264,6 +266,14 @@
     };
 
     $(document).ready(function(){
+        $.ajaxSetup({
+            crossDomain: false, // obviates need for sameOrigin test
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", document.API.csrf_token);
+                console.log(xhr);
+            }
+        });
+
         if(!$.fn.fullCalendar.length){
             CalendarItems.calendar_holder.append($('<div class="alert alert-block alert-alarm">Aw, snap! ' +
                 'We can\'t find FullCalendar module. Please, make sure, ' +
@@ -271,7 +281,7 @@
             return;
         }
         /* TODO: re-edit everything below!*/
-        var calendarOptions = function(permission, cls){
+        var calendarOptions = function(cls, permission){
 
         return{
                 header: {
@@ -439,10 +449,9 @@
                  }
 
             };
-
-        Form.end.datetimepicker(datepicker_options);
-        Form.start.datetimepicker(datepicker_options);
-
+        Form.allDay.on('change', function(){all_day_change(datepicker_options, datetimepicker_options)});
+        Form.obj.on('hide', function(){ afterHideModal() });
+        Form.obj.on('shown', function(){ afterShowModal() });
         Form.saveButton.live('click', function(e){
             saveBtnHandler(e, calendar);
         })
@@ -455,12 +464,14 @@
             $(pickers).each(function(){
                 $(this).datepicker('destroy');
                 $(this).datepicker(d_opts);
+                $(this).datepicker('setDate', $(this).datepicker('getDate'));
             });
         }
         else{
             $(pickers).each(function(){
                 $(this).datepicker('destroy');
                 $(this).datetimepicker(dt_opts);
+                $(this).datetimepicker('setDate', $(this).datetimepicker('getDate'));
             });
         }
     }
@@ -469,18 +480,31 @@
             work_tools.modalConfirm.modalWindow.modal('show');
     }
 
-    function hideModalHandler(){
-            Form.owner.val('').find('option:selected').removeAttr('selected');
-            Form.color.val('').find('option:selected').removeAttr('selected');
-            Form.title.val('');
-            Form.start.val('');
-            Form.end.val('');
-            Form.description.val('');
-            Form.allDay.prop('checked', false).trigger('change');
-            $('div.alert.alert-block.alert-error').remove();
-            CalendarItems.calendar_holder.fullCalendar('unselect');
-            return true;
-        }
+    function afterHideModal(){
+        Form.color.val('').find('option:selected').removeAttr('selected');
+        Form.title.val('');
+        Form.start.val('');
+        Form.end.val('');
+        Form.description.val('');
+        Form.privateMode.iButton('destroy');
+        Form.allDay.iButton('destroy');
+        Form.allDay.prop('checked', false).trigger('change');
+        $('div.alert.alert-block.alert-error').remove();
+        CalendarItems.calendar_holder.fullCalendar('unselect');
+        return true;
+    }
+
+    function afterShowModal(){
+        Form.allDay.iButton({
+            labelOn: 'All day',
+            labelOff: 'Flexible time'
+        });
+        Form.privateMode.iButton({
+            labelOn: 'Private',
+            labelOff: 'Public'
+        })
+    }
+
 
     function saveBtnHandler(e, o){
             e.preventDefault();

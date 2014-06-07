@@ -11,3 +11,4 @@ django-oauth2-provider==0.2.6
 django-guardian==1.2.0
 djangorestframework==2.3.13
 wtforms==1.0.5
+south==0.8.4

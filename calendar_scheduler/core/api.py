@@ -6,6 +6,7 @@ from calendar_scheduler.core.models import CalendarEvent
 from calendar_scheduler.core.forms import CalendarForm
 import datetime
 import json
+import logging
 
 
 class BaseCalendarAPI(RESTfulHandler):
@@ -23,9 +24,9 @@ class BaseCalendarAPI(RESTfulHandler):
         form = CalendarForm(self.request.REQUEST)
         if form.validate():
             key = self.request.REQUEST.get('key')
-            if key:
+            if not key:
                 return self.create(form)
-            obj = CalendarEvent.objects.get(key)
+            obj = CalendarEvent.objects.get(pk=key)
             form.populate_obj(obj)
             obj.save()
             return json.dumps(obj.to_json)
@@ -44,11 +45,14 @@ class BaseCalendarAPI(RESTfulHandler):
         start_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('start')))
         end_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('end')))
         try:
-            event_list = list(CalendarEvent.objects.filter(start_date__gte=start_date).filter(end_date__lte=end_date))
-        except Exception:
+            event_list = CalendarEvent.objects.filter(start__gte=start_date).filter(end__lte=end_date)
+        except Exception as e:
+            logging.error(e)
             event_list = []
-        return event_list
+        return [e.to_json for e in event_list]
 
-    @staticmethod
-    def create(form):
-        return CalendarEvent.objects.create(form.data)
+    def create(self, form):
+        result = CalendarEvent()
+        form.populate_obj(result)
+        result.save()
+        return result.to_json

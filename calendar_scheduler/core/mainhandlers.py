@@ -7,15 +7,16 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponseBadRequest, HttpResponse
 import collections
 import json
+import logging
 
 
-class LoginRequiredView(TemplateView):
+class LoginRequiredView(View):
     @method_decorator(login_required())
     def dispatch(self, request, *args, **kwargs):
         return super(LoginRequiredView, self).dispatch(request, *args, **kwargs)
 
 
-class MainHandler(LoginRequiredView):
+class MainHandler(LoginRequiredView, TemplateView):
     template_name = 'base.html'
 
     def get_context_data(self, **kwargs):
@@ -72,7 +73,8 @@ class RESTfulHandler(LoginRequiredView):
         self.kwargs = kwargs
         try:
             result = self.post_result()
-        except Exception:
+        except Exception as e:
+            logging.error(e)
             return self.abort()
         return self.make_response(result)
 
