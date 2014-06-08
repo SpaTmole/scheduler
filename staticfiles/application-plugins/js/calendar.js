@@ -122,7 +122,7 @@
         console.log(feed);
         if(all_day.attr('disabled') && all_day.attr('value') == 'y')
             feed += '&allDay=y';
-        saveBtn.text('').attr('disabled','disabled').append('<img style="width: 15px;" src="/media/MoonCakeTheme/assets/images/preloaders/2.gif"/>');
+        saveBtn.text('').attr('disabled','disabled').append('<img style="width: 15px;" src="'+$('#preloader2').attr('href')+'"/>');
         if(action == "New event:"){ //create;
                 window.lock();
                 send_ajax_request(document.API.url, feed,

@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b720635-3841-4169-93fb-019c4b205860" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/api.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/calendar.html" afterPath="$PROJECT_DIR$/templates/calendar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/assets/css/main-style.css" afterPath="$PROJECT_DIR$/staticfiles/assets/css/main-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" afterPath="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" afterPath="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainhandlers.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mainhandlers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="29" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.52097905" vertical-offset="1124" max-vertical-offset="1800">
+            <state line="85" column="29" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.0" vertical-offset="1413" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
@@ -53,7 +48,7 @@
       <file leaf-file-name="scheduler-main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="12" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="882">
+            <state line="17" column="16" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="882">
               <folding />
             </state>
           </provider>
@@ -62,25 +57,16 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="85" selection-start="1254" selection-end="1254" vertical-scroll-proportion="11.333333" vertical-offset="792" max-vertical-offset="3474">
+            <state line="27" column="85" selection-start="1254" selection-end="1254" vertical-scroll-proportion="1.3333334" vertical-offset="522" max-vertical-offset="3474">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="calendar.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="390" column="74" selection-start="15828" selection-end="15828" vertical-scroll-proportion="0.0" vertical-offset="7517" max-vertical-offset="8496">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/staticfiles/assets/css/layout.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="28962">
+            <state line="129" column="67" selection-start="4911" selection-end="4911" vertical-scroll-proportion="-2.054755" vertical-offset="3035" max-vertical-offset="8496">
               <folding />
             </state>
           </provider>
@@ -98,42 +84,8 @@
       <file leaf-file-name="calendar.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/calendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="105" selection-start="3922" selection-end="3922" vertical-scroll-proportion="2.7407408" vertical-offset="1874" max-vertical-offset="2268">
-              <folding>
-                <marker date="1402227408215" expanded="true" signature="101:154" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="203:3359" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="236:392" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="423:3129" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="462:3116" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="508:3099" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="623:863" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="649:711" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="752:842" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="905:1703" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="950:1682" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="992:1305" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1042:1276" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1080:1170" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1347:1657" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1397:1628" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1435:1525" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1745:2531" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1790:2510" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1832:2136" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="1881:2107" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2178:2485" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2227:2456" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2573:2792" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2599:2655" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2696:2771" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2834:3081" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2860:2922" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="2963:3060" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="3162:3348" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="4232:4610" placeholder="..." />
-                <marker date="1402227408215" expanded="true" signature="4271:4595" placeholder="{...}" />
-                <marker date="1402227408215" expanded="true" signature="4414:4583" placeholder="{&quot;url&quot;: '{%url &quot;calendar_scheduler:calendar-api&quot; %}'...}" />
-              </folding>
+            <state line="101" column="24" selection-start="3947" selection-end="3947" vertical-scroll-proportion="-9.925926" vertical-offset="1550" max-vertical-offset="2286">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,12 +118,12 @@
         <option value="$PROJECT_DIR$/scheduler/urls.py" />
         <option value="$PROJECT_DIR$/calendar_scheduler/models.py" />
         <option value="$PROJECT_DIR$/staticfiles/assets/css/main-style.css" />
-        <option value="$PROJECT_DIR$/templates/calendar.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
-        <option value="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
         <option value="$PROJECT_DIR$/calendar_scheduler/core/api.py" />
         <option value="$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py" />
+        <option value="$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css" />
+        <option value="$PROJECT_DIR$/templates/calendar.html" />
+        <option value="$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js" />
       </list>
     </option>
   </component>
@@ -540,14 +492,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1311" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3344" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3344" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23990498" sideWeight="0.664" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23990498" sideWeight="0.6656" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.4996041" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.336" sideWeight="0.5003959" order="8" side_tool="true" content_ui="tabs" />
@@ -576,13 +528,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scheduler/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="46" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Envs/scheduler/lib/python2.7/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="86" column="0" selection-start="3155" selection-end="3155" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="3870">
@@ -637,75 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/assets/css/main-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="36" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/calendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="105" selection-start="3922" selection-end="3922" vertical-scroll-proportion="2.7407408" vertical-offset="1874" max-vertical-offset="2268">
-          <folding>
-            <marker date="1402227408215" expanded="true" signature="101:154" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="203:3359" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="236:392" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="423:3129" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="462:3116" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="508:3099" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="623:863" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="649:711" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="752:842" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="905:1703" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="950:1682" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="992:1305" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1042:1276" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1080:1170" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1347:1657" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1397:1628" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1435:1525" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1745:2531" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1790:2510" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1832:2136" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="1881:2107" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2178:2485" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2227:2456" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2573:2792" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2599:2655" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2696:2771" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2834:3081" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2860:2922" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="2963:3060" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="3162:3348" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="4232:4610" placeholder="..." />
-            <marker date="1402227408215" expanded="true" signature="4271:4595" placeholder="{...}" />
-            <marker date="1402227408215" expanded="true" signature="4414:4583" placeholder="{&quot;url&quot;: '{%url &quot;calendar_scheduler:calendar-api&quot; %}'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="85" selection-start="1254" selection-end="1254" vertical-scroll-proportion="11.333333" vertical-offset="792" max-vertical-offset="3474">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="12" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="390" column="74" selection-start="15828" selection-end="15828" vertical-scroll-proportion="0.0" vertical-offset="6869" max-vertical-offset="8496">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="19" selection-start="1194" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1098">
@@ -715,7 +591,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calendar_scheduler/core/mainhandlers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="29" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.52097905" vertical-offset="1124" max-vertical-offset="1800">
+        <state line="85" column="29" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.0" vertical-offset="1413" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/css/scheduler-main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="85" selection-start="1254" selection-end="1254" vertical-scroll-proportion="1.3333334" vertical-offset="522" max-vertical-offset="3474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staticfiles/assets/images/preloaders/2.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/calendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="24" selection-start="3947" selection-end="3947" vertical-scroll-proportion="-9.925926" vertical-offset="1550" max-vertical-offset="2286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staticfiles/assets/css/main-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="36" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staticfiles/application-plugins/js/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="67" selection-start="4911" selection-end="4911" vertical-scroll-proportion="-2.054755" vertical-offset="3035" max-vertical-offset="8496">
           <folding />
         </state>
       </provider>
