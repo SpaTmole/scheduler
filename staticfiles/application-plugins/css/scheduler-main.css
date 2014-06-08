@@ -12,15 +12,19 @@
     left: 50%;
 }
 .delete-btn{
-    float: left;
     z-index: 1;
-    line-height: 0;
+    line-height: 2px;
+    padding: 3px;
     font-size: 10pt;
     width: 10px;
     height: 10px;
+    border-radius: 50%;
+    color: #000;
 }
-.del-event-btn:hover{
-    box-shadow: 1px 1px 1px 1px #000;
+.delete-btn:hover{
+    box-shadow: 0 0 10px 2px #000;
+    background: black;
+    color: white;
 }
 .modal{
     left: 35%;
@@ -33,4 +37,8 @@
 .modal-body{
     overflow-y: visible;
     max-height: inherit;
+}
+.fc-event{
+    background: none;
+    color: #000;
 }

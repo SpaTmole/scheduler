@@ -83,9 +83,10 @@ class RESTfulHandler(LoginRequiredView):
         self.kwargs = kwargs
         try:
             result = self.delete_result()
-        except Exception:
+        except Exception as e:
+            logging.error(e)
             return self.abort()
-        return self.make_response({'success': result is True and 1})
+        return self.make_response(result)
 
     def put(self, *args, **kwargs):
         self.args = args

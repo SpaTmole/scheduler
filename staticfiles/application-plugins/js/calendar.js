@@ -8,7 +8,7 @@
         calendar_holder: $('div#calendar-content'),
         form_holder: $('div#modalForm'),
         form: $('form#main-form'),
-        delete_btn: $('#delete_btn')
+        delete_btn: $("<a id='delete_btn' class='delete-btn'><i class='icon-remove-sign'></i></a>")
     };
 
     var Form = {
@@ -92,61 +92,6 @@
         }
     };
 
-//    Calendar.fn.appendFilterByTypes = function(){
-//        var that = this;
-//        var hintBox = $('#id_hint_box');
-//        hintBox.append($('<a class="btn btn-default type-select type-select-all">').attr('value','all').text('All types'));
-//        for(var i = 0; i<EVENT_TYPE_LIST.length; ++ i){
-//            var option = $('<a class="opt option-'+EVENT_TYPE_LIST[i].value+' btn type-select ">').attr('value',EVENT_TYPE_LIST[i].value).append(EVENT_TYPE_LIST[i].text);
-//            if (this.permission){
-//                option.append($('<b> </b><i class="icon-bended-arrow-down" style="font-size: 10px"></i>'))
-//            }else{
-//                option.append($('<b> </b><i class="icon-bended-arrow-down faded-arrow" style="font-size: 10px"></i>'))
-//            }
-//            hintBox.append(option);
-//        }
-//        var type_select_nodes = $('a.type-select');
-//        type_select_nodes.slice(0,1).wrapAll($('<span class="btn-bar-group">'));
-//        type_select_nodes.slice(1,4).wrapAll($('<span class="btn-bar-group">'));
-//        type_select_nodes.slice(4,6).wrapAll($('<span class="btn-bar-group">'));
-//        type_select_nodes.slice(6,8).wrapAll($('<span class="btn-bar-group">'));
-//        type_select_nodes.slice(8,9).wrapAll($('<span class="btn-bar-group">'));
-//        // Handler for above
-//        type_select_nodes
-//            .live('click', function(e){
-//            var hintBox = $('#id_hint_box');
-//            hintBox.find('.active').removeClass('active');
-//            $(this).addClass('active');
-//            FILTER_TYPE = $(this).attr('value');
-//            that.options.events = {
-//                url: GET_EVENTS_URL,
-//                data:{
-//                    type: FILTER_TYPE,
-//                    owner: FILTER_OWNER
-//                }
-//            };
-//            var calendar = work_tools.calendarFrame;
-//            var currentDate = calendar.fullCalendar('getDate'),
-//                currentView = calendar.fullCalendar('getView');
-//
-//            calendar.fullCalendar('destroy'); // not better way to resolve this problem, but who cares...
-//            calendar.fullCalendar(that.options);
-//            calendar.fullCalendar('changeView', currentView.name);
-//            calendar.fullCalendar('gotoDate', currentDate);
-//            that.append_navigation_between_dates();
-//            })
-//            .attr('unselectable', 'on')
-//            .css('user-select', 'none')
-//            .on('selectstart', false);
-//        if(this.permission){
-//            type_select_nodes.not('.type-select-all').draggable({
-//                revert: true,
-//                revertDuration: 0
-//            });
-//        }
-//
-//    };
-
     Calendar.fn.saveEvent = function (callback){
         $('div.alert[name="error_field"]').remove();
         var action = Form.header.text(),
@@ -197,72 +142,25 @@
                         }
                         calendar.fullCalendar('renderEvent', data);
                         calendar.fullCalendar('unselect');
-                        $('#ModalCreate').modal('hide');
+                        CalendarItems.form_holder.modal('hide');
                     }, 'post', callback);
         }
     };
 
-//    Calendar.fn.appendFilterByUsers = function(){
-//        var that = this;
-//        var navList = $('#navigation').find('li.active .inner-nav');
-//        navList.append($('<li class="staff-divider"><a><hr/></a></li>'));
-//        var scrollableLine = $('<li><ul id="id_workers_filter_list" class="inner-nav scrollable"></ul></li>');
-//        navList.append(scrollableLine);
-//        var forAll = $('<li class="workman active">')
-//            .attr('data-key', 'all')
-//            .append($('<a href="#" ></a>')
-//            .append($('<i class="icon-hand-right"></i>'))
-//            .append(' All'));
-//        $('#id_workers_filter_list').append(forAll);
-//        for (var i = 0; i < STAFF_LIST.length; ++i){
-//            var option = $('<li class="workman">')
-//                .attr('data-key',STAFF_LIST[i].value)
-//                .append($('<a href="#" name="frameWorkerLink"></a>')
-//                .append($('<i class="icon-hand-right hide"></i>'))
-//                .append(' '+STAFF_LIST[i].text));
-//            $('#id_workers_filter_list').append(option);
-//        }
-//        navList.append($('<li class="staff-divider"><hr/></li>'));
-//        // Handler for above
-//        $('li.workman').on('click', function(e){
-//            var navList = $('#navigation').find('li.active .inner-nav');
-//            navList.find('li.active').removeClass('active').find('i').addClass('hide');
-//            $(this).addClass('active').find('i').removeClass('hide');
-//            FILTER_OWNER = $(this).attr('data-key');
-//            that.options.events = {
-//                url: GET_EVENTS_URL,
-//                data:{
-//                    type: FILTER_TYPE,
-//                    owner: FILTER_OWNER
-//                }
-//            };
-//            var calendar = work_tools.calendarFrame;
-//            var currentDate = calendar.fullCalendar('getDate'),
-//                currentView = calendar.fullCalendar('getView');
-//
-//            calendar.fullCalendar('destroy'); // not best way to resolve this problem, but who cares...
-//            calendar.fullCalendar(that.options);
-//            calendar.fullCalendar('changeView', currentView.name);
-//            calendar.fullCalendar('gotoDate', currentDate);
-//            that.append_navigation_between_dates();
-//
-//        });
-//    };
-
     Calendar.fn.fillForm = function(calEvent){
-        Form.title.val(calEvent.name);
+        Form.title.val(calEvent.title);
         if(!calEvent.end){
             calEvent.end = calEvent.start;
             calEvent.end.setHours(23,59,59);
         }
-        Form.header.text("Edit '"+calEvent.title+'\'s '+calEvent.name+"' event:");
+        Form.header.text("Edit '"+calEvent.title+"' event:");
         Form.description.val(calEvent.description);
         if(calEvent.allDay)
             Form.allDay.prop('checked', true).trigger('change');
         Form.end.datepicker('setDate', calEvent.end);
         Form.start.datepicker('setDate', calEvent.start);
-        Form.color.find('[value="'+calEvent.color.toString().split('-')[1]+'"]').attr('selected','selected');
-        Form.owner.find('[value="'+calEvent.owner.key+'"]').attr('selected','selected');
+        Form.color.find('[value="'+calEvent.color+'"]').attr('selected','selected');
+        Form.owner.val(calEvent.owner);
     };
 
     $(document).ready(function(){
@@ -294,6 +192,7 @@
                 firstDay: 1,
                 eventTransaction: undefined,
                 weekMode: 'liquid',
+                eventColor: 'blue',
                 editable: permission,
                 events: {
                     url: document.API.url,
@@ -315,18 +214,6 @@
                     month: '<i class="icon-th"> Month</i>'
                 },
                 droppable: permission,
-//                drop: function(date, allDay) {
-//                    var end = new Date(date.getFullYear(), date.getMonth(),date.getDate(), date.getHours()+1, date.getMinutes());
-//                    if(allDay){
-//                        work_tools.modalEvent.modalTools.allDayField.prop('checked', true).trigger('change');
-//                        end.setHours(23,59,59);
-//                    }
-//                    work_tools.modalEvent.modalTools.startDatePicker.datepicker('setDate', date);
-//                    work_tools.modalEvent.modalTools.endDatePicker.datepicker('setDate', end);
-//                    work_tools.modalEvent.modalTools.typeSelect.find('[value="'+$(this).attr('class').split(' ')[1].split('-')[1]+'"]').attr('selected','selected');
-//                    work_tools.modalEvent.modalHeader.text("New event:");
-//                    work_tools.modalEvent.modalWindow.modal('show');
-//                },
                 loading: function( isLoading, view ){
                     if(isLoading){
                         window.lock();
@@ -346,38 +233,25 @@
                 },
 
                 eventMouseover: function( event, jsEvent, view ) {
-                    var name = event.name;
-                    if(!name)
-                        name = 'Noname';
 
                     var title_element = $(this).find('[class="fc-event-title"]');
 
-                    title_element.animate({opacity: 0.1}, 200, function(){
-                        title_element.text('Name: '+event.name).animate({opacity: 1.0}, 200);
-                    });
+//                    title_element.animate({opacity: 0.1}, 200, function(){
+//                        title_element.text('Name: '+event.name).animate({opacity: 1.0}, 200);
+//                    });
                     var posToPaste = title_element,
                         time_element = $(this).find('[class="fc-event-time"]');
                     if(time_element.length)
                         posToPaste = time_element;
 
-                    if(!CalendarItems.delete_btn.length){
-
-                        var delete_btn = $("<a id='delete_btn' class='del-event-btn'><i class='icon-remove-sign'></i></a>");
-                        if(permission){
-                            delete_btn.fadeIn(300).insertBefore(posToPaste);
-                        }
-                        CalendarItems.delete_btn = delete_btn;
+                    if(permission){
+                        CalendarItems.delete_btn.insertBefore(posToPaste);
+                        $.data(CalendarItems.delete_btn, 'event', {event: event, obj: $(this)});
                     }
                 },
                 eventMouseout: function( event, jsEvent, view ) {
-
-                    var title_element = $(this).find('[class="fc-event-title"]');
-                    title_element.animate({opacity: 0.1}, 200, function(){
-                        title_element.text(event.title).animate({opacity: 1.0}, 200);
-                    });
-
-                    CalendarItems.delete_btn.remove();
-                    CalendarItems.delete_btn = $();
+                    CalendarItems.delete_btn.detach();
+                    $.data(CalendarItems.delete_btn, 'event', null);
                 },
                 eventClick: function(calEvent, jsEvent, view) {
                     if(!(CalendarItems.delete_btn.is(":hover")))
@@ -450,11 +324,13 @@
 
             };
         Form.allDay.on('change', function(){all_day_change(datepicker_options, datetimepicker_options)});
+        Form.allDay.trigger('change');  //For initialization of datepickers
         Form.obj.on('hide', function(){ afterHideModal() });
         Form.obj.on('shown', function(){ afterShowModal() });
         Form.saveButton.live('click', function(e){
             saveBtnHandler(e, calendar);
-        })
+        });
+        CalendarItems.delete_btn.on('click', function(){ eventDelBtnHandler(); });
     });
 
     function all_day_change(d_opts, dt_opts){
@@ -474,10 +350,6 @@
                 $(this).datetimepicker('setDate', $(this).datetimepicker('getDate'));
             });
         }
-    }
-
-    function eventDelBtnHandler(){
-            work_tools.modalConfirm.modalWindow.modal('show');
     }
 
     function afterHideModal(){
@@ -511,17 +383,38 @@
             o.saveEvent();
         }
 
+    function eventDelBtnHandler(){
+        if($('#deleteConfirmDlg').length){
+            $('#deleteConfirmDlg').dialog('destroy').remove();
+        }
+        var eventObj =  $.data(CalendarItems.delete_btn, 'event');
+        $('<div id="deleteConfirmDlg">Delete ' + eventObj.event.title + ' event?</div>').dialog({
+            buttons: [
+                { text: "Yes", click: function(e) { modalDelBtnHandler(eventObj);
+                                                    $(this).dialog('close');
+                                                    $(this).remove()} },
+                { text: "No", click: function(){$(this).dialog('close');
+                                                $(this).remove(); }}
+            ],
+            title: "Are you sure?",
+            appendTo: eventObj.obj
+        }).on('close', function(){
+            $.data(CalendarItems.delete_btn, 'event', null);
+            $(this).dialog('destroy');
+        });
+    }
+
     function modalDelBtnHandler(e){
-        var calendar = CalendarItems.calendar_holder;
+        if(!e) return;
+        var event = e.event,
+            htmlItem = e.obj;
         window.lock();
-        calendar.fullCalendar.eventTransaction.htmlObject.fadeOut(1000);
-        send_ajax_request(window.API.url+'?key='+calendar.fullCalendar.eventTransaction.eventObject.key, null, function(){
-            calendar.fullCalendar('removeEvents', function(event){
-                return (event == calendar.fullCalendar.eventTransaction.eventObject);
+        htmlItem.fadeOut(1000);
+        send_ajax_request(document.API.url+'?key='+event.key, htmlItem, function(){
+            CalendarItems.calendar_holder.fullCalendar('removeEvents', function(_event){
+                return (_event == event);
             });
-            unlock_screen();
-        }, 'delete', function(o){calendar.fullCalendar.eventTransaction.htmlObject.fadeIn(200);});
-        work_tools.modalConfirm.modalWindow.modal('hide');
+        }, 'delete', function(o){o.fadeIn(200);});
     }
 
 
@@ -569,8 +462,5 @@
                 }
         );
     }
-
-
-
 })(jQuery, window.document, window);
 

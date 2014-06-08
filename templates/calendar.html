@@ -95,9 +95,10 @@
 {% block tab-name %}calendar{% endblock %}
 {% block media_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.css' %}" media="all"/>
-    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.print.css' %}" media="all"/>
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.css' %}" media="screen"/>
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/fullcalendar.print.css' %}" media="print"/>
     <link rel="stylesheet" href="{% static 'plugins/ibutton/jquery.ibutton.css' %}" media="all"/>
+    <link rel="stylesheet" href="{% static 'application-plugins/css/scheduler-main.css' %}" media="all"/>
 {% endblock %}
 {% block media_js %}
     <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>

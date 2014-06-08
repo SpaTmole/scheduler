@@ -31,12 +31,15 @@ class BaseCalendarAPI(RESTfulHandler):
             obj.save()
             return json.dumps(obj.to_json)
         else:
-            return json.dumps({'errors': form.errors, 'status': 'fail'})
+            return json.dumps({'form': form.errors, 'status': 'error'})
 
     def delete_result(self):
-        """
-        and here will be handled delete request
-        """
+        key = self.request.REQUEST.get('key')
+        if key:
+            obj = CalendarEvent.objects.get(pk=key)
+            obj.delete()
+            return {'status': 'success'}
+        return {'status', 'error'}
 
     def read(self):
         """
