@@ -81,6 +81,9 @@
                       {% form_field form.description  class="span12" %}
                   </div>
               </div>
+              <div class="control-group">
+                  {% form_field form.guests class="span12"%}
+              </div>
           </form>
           </div>
       </div>
@@ -100,11 +103,14 @@
     <link rel="stylesheet" href="{% static 'plugins/ibutton/jquery.ibutton.css' %}" media="all"/>
     <link rel="stylesheet" href="{% static 'application-plugins/css/scheduler-main.css' %}" media="all"/>
     <link id="preloader2" rel="image" href="{% static 'assets/images/preloaders/2.gif' %}"/>
+    <link rel="stylesheet" href="{% static 'custom-plugins/Select2-3.4.8/select2-bootstrap.css' %}" media="screen"/>
+    <link rel="stylesheet" href="{% static 'custom-plugins/Select2-3.4.8/select2.css' %}" media="screen"/>
 {% endblock %}
 {% block media_js %}
     <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>
     <script src="{% static 'plugins/ibutton/jquery.ibutton.min.js' %}"></script>
     <script src="{% static 'assets/js/libs/jquery.cookie.js' %}"></script>
+    <script src="{% static 'custom-plugins/Select2-3.4.8/select2.min.js' %}"></script>
     <script language="JavaScript">
         $(document).ready(function() {
             // page is now ready, initialize the calendar...

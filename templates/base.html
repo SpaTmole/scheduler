@@ -107,7 +107,18 @@
 											<span class="nav-title">Settings</span>
                                         </span>
                                     	<ul class="inner-nav">
-                                        	<li><a class="tab-example"><i class="icol-ui-tab-content"></i> Nothing </a></li>
+                                        	<li>
+                                                <a class="tab-example">
+                                                    <i class="icol-ui-tab-content"></i> Nothing
+                                                </a>
+                                            </li>
+                                            {% if request.user.is_staff %}
+                                            <li>
+                                                <a target="_blank" class="tab-admin" href="{% url 'admin:index' %}">
+                                                    <i class="icol-user-business-boss"></i> Administration
+                                                </a>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </li>
 

@@ -19,7 +19,7 @@
         color: $('#color'),
         description: $('#description'),
         owner: $('#owner'),
-        //guests: $(),
+        guests: $('#guests'),
         allDay: $('#allDay'),
         privateMode: $('#privateMode'),
         header: $('#myModalLabel'),
@@ -157,10 +157,15 @@
         Form.description.val(calEvent.description);
         if(calEvent.allDay)
             Form.allDay.prop('checked', true).trigger('change');
+        Form.privateMode.prop('checked', calEvent.privateMode);
         Form.end.datepicker('setDate', calEvent.end);
         Form.start.datepicker('setDate', calEvent.start);
         Form.color.find('[value="'+calEvent.color+'"]').attr('selected','selected');
         Form.owner.val(calEvent.owner);
+        for(var guest_ind in calEvent.guests){
+            Form.guests.find('[value="' + calEvent.guests[guest_ind] + '"]').prop('selected', true);
+        }
+
     };
 
     $(document).ready(function(){
@@ -333,6 +338,11 @@
         CalendarItems.delete_btn.on('click', function(){ eventDelBtnHandler(); });
     });
 
+    function colorPick(item){
+        if(!item.id) return item.text; //opt-group
+        return "<div class='color-spot' style='background:"+item.id+";'></div> " + item.text;
+    }
+
     function all_day_change(d_opts, dt_opts){
         var all_day = Form.allDay,
             pickers = [Form.start, Form.end];
@@ -353,20 +363,29 @@
     }
 
     function afterHideModal(){
+        Form.color.select2('destroy');
         Form.color.val('').find('option:selected').removeAttr('selected');
         Form.title.val('');
         Form.start.val('');
         Form.end.val('');
         Form.description.val('');
         Form.privateMode.iButton('destroy');
+        Form.privateMode.prop('checked', false);
         Form.allDay.iButton('destroy');
         Form.allDay.prop('checked', false).trigger('change');
         $('div.alert.alert-block.alert-error').remove();
         CalendarItems.calendar_holder.fullCalendar('unselect');
+        Form.guests.select2('destroy').find('option:selected').removeAttr('selected');
         return true;
     }
 
     function afterShowModal(){
+        Form.color.select2({
+            formatResult: colorPick,
+            formatSelection: colorPick,
+            escapeMarkup: function(m) { return m; }
+        })
+        Form.guests.select2();
         Form.allDay.iButton({
             labelOn: 'All day',
             labelOff: 'Flexible time'

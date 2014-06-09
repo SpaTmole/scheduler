@@ -101,16 +101,31 @@ BaseCalendarForm = model_form(CalendarEvent, base_class=MediaForm,
                                     'description'))
 
 
+class GuestFormSet(wtforms.Form):
+    user = wtforms.StringField(validators=[validators.InputRequired(), ])
+    check = wtforms.BooleanField(default=False)
+
+
 class CalendarForm(BaseCalendarForm):
     start = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required(),
                                                                           ValidateStartEndDatetimeProps()])
     end = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required(),
                                                                         ValidateStartEndDatetimeProps()])
     owner = wtforms.HiddenField(validators=[validators.Required(), ValidateUser(), ])
+    guests = wtforms.SelectMultipleField(default=[], choices=[])
 
     def __init__(self, *args, **kwargs):
         super(CalendarForm, self).__init__(*args, **kwargs)
-        self.obj = kwargs.get('obj')
+        #TODO: To replace query order by friends of User
+        self.guestsQuerySet = User.objects.all()
+        self.guests.choices = []
+        if self.guests.data:
+            for user in self.guestsQuerySet:
+                self.guests.choices.append(str(user.pk))
+        else:
+            for user in self.guestsQuerySet:
+                if user.pk != self.owner.data:
+                    self.guests.choices.append((user.pk, user.username))
 
     @staticmethod
     def normalize(**kwargs):
@@ -124,5 +139,13 @@ class CalendarForm(BaseCalendarForm):
         return kwargs
 
     def populate_obj(self, obj):
-        self.owner.data = User.objects.get(pk=self.owner.data)
+        obj.owner = self.owner.data = User.objects.get(pk=self.owner.data)
+        obj.start = self.start.data
+        obj.end = self.end.data
+        obj.save()
+        guests_data_to_render = []
+        for user in self.guestsQuerySet:
+            if str(user.pk) in self.guests.data and user.pk != obj.owner.pk:
+                guests_data_to_render.append(user)
+        self.guests.data = guests_data_to_render
         super(CalendarForm, self).populate_obj(obj)
