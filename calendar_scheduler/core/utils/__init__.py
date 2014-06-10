@@ -29,3 +29,13 @@ class ValidateStartEndDatetimeProps(object):
                 if form.start.data < form.end.data:
                     return
             raise ValidationError(self.message)
+
+
+class ValidatePermission(object):
+    def __init__(self, user, message=None):
+        self.user = user
+        self.message = message if message else "Permission denied for %s" % user.username
+
+    def __call__(self, form, field):
+        if form.privateMode.data and str(self.user.pk) != form.owner.data:
+            raise ValidationError(self.message)

@@ -7,6 +7,7 @@ from calendar_scheduler.core.forms import CalendarForm
 import datetime
 import json
 import logging
+import itertools
 
 
 class BaseCalendarAPI(RESTfulHandler):
@@ -21,7 +22,7 @@ class BaseCalendarAPI(RESTfulHandler):
             return self.abort()
 
     def post_result(self):
-        form = CalendarForm(self.request.REQUEST)
+        form = CalendarForm(self.request.REQUEST, request=self.request)
         if form.validate():
             key = self.request.REQUEST.get('key')
             if not key:
@@ -48,11 +49,12 @@ class BaseCalendarAPI(RESTfulHandler):
         start_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('start')))
         end_date = datetime.datetime.fromtimestamp(float(self.request.REQUEST.get('end')))
         try:
-            event_list = CalendarEvent.objects.filter(start__gte=start_date).filter(end__lte=end_date)
+            owners_events = CalendarEvent.objects.filter(owner=self.request.user).filter(start__gte=start_date).filter(end__lte=end_date)
+            invited_events = self.request.user.calendar_guests.filter(start__gte=start_date).filter(end__lte=end_date)
+            return [e.to_json for e in itertools.chain(owners_events, invited_events)]
         except Exception as e:
             logging.error(e)
-            event_list = []
-        return [e.to_json for e in event_list]
+            return []
 
     def create(self, form):
         result = CalendarEvent()

@@ -8,7 +8,7 @@ from itertools import chain
 from urlparse import urljoin
 from wtforms import validators
 from scheduler import settings
-from utils import ValidateUser, ValidateStartEndDatetimeProps
+from utils import ValidateUser, ValidateStartEndDatetimeProps, ValidatePermission
 import logging
 
 MEDIA_TYPES = ('js', 'css')
@@ -111,11 +111,17 @@ class CalendarForm(BaseCalendarForm):
                                                                           ValidateStartEndDatetimeProps()])
     end = wtforms.DateTimeField(format='%d-%m-%Y %H:%M:%S', validators=[validators.Required(),
                                                                         ValidateStartEndDatetimeProps()])
-    owner = wtforms.HiddenField(validators=[validators.Required(), ValidateUser(), ])
+    owner = wtforms.HiddenField(validators=[object, validators.Required(), ValidateUser(), ])
     guests = wtforms.SelectMultipleField(default=[], choices=[])
 
     def __init__(self, *args, **kwargs):
         super(CalendarForm, self).__init__(*args, **kwargs)
+        if kwargs.get('request'):# and len(self.owner.validators) == 2:  # TODO: discover how to add validator with param
+        # Such a kludge! But when instance doesn't die, it leaks, otherwise there is no easy way to add such validator
+            self.owner.validators[0] = ValidatePermission(
+                kwargs.get('request').user,
+                "You can\'t edit private event, which doesn\'t belong to you."
+            )
         #TODO: To replace query order by friends of User
         self.guestsQuerySet = User.objects.all()
         self.guests.choices = []
@@ -124,8 +130,8 @@ class CalendarForm(BaseCalendarForm):
                 self.guests.choices.append(str(user.pk))
         else:
             for user in self.guestsQuerySet:
-                if user.pk != self.owner.data:
-                    self.guests.choices.append((user.pk, user.username))
+                # if user.pk != self.owner.data:
+                self.guests.choices.append((user.pk, user.username))
 
     @staticmethod
     def normalize(**kwargs):

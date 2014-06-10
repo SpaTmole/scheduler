@@ -240,10 +240,6 @@
                 eventMouseover: function( event, jsEvent, view ) {
 
                     var title_element = $(this).find('[class="fc-event-title"]');
-
-//                    title_element.animate({opacity: 0.1}, 200, function(){
-//                        title_element.text('Name: '+event.name).animate({opacity: 1.0}, 200);
-//                    });
                     var posToPaste = title_element,
                         time_element = $(this).find('[class="fc-event-time"]');
                     if(time_element.length)
@@ -368,6 +364,7 @@
         Form.title.val('');
         Form.start.val('');
         Form.end.val('');
+        Form.owner.val('');
         Form.description.val('');
         Form.privateMode.iButton('destroy');
         Form.privateMode.prop('checked', false);
@@ -384,7 +381,7 @@
             formatResult: colorPick,
             formatSelection: colorPick,
             escapeMarkup: function(m) { return m; }
-        })
+        });
         Form.guests.select2();
         Form.allDay.iButton({
             labelOn: 'All day',
@@ -393,7 +390,10 @@
         Form.privateMode.iButton({
             labelOn: 'Private',
             labelOff: 'Public'
-        })
+        });
+        if(!Form.owner.val()){
+            Form.owner.val(document.API.user_pk);
+        }
     }
 
 

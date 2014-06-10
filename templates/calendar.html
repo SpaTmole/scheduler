@@ -119,7 +119,8 @@
             document.API = {
                 url: '{%url "calendar_scheduler:calendar-api" %}',
                 filter_owner: 'all',
-                csrf_token: $.cookie('csrftoken')
+                csrf_token: $.cookie('csrftoken'),
+                user_pk: {{ request.user.pk }}
             };
 
         });
